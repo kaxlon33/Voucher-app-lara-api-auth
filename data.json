@@ -5,61 +5,6 @@
       "product_name": "Performance Optimize Service",
       "price": 1000,
       "created-at": "2024-09-10T08:15:30Z"
-    },
-    {
-      "id": 2,
-      "product_name": "Website Design Service",
-      "price": 3000,
-      "created-at": "2024-09-11T10:30:00Z"
-    },
-    {
-      "id": 3,
-      "product_name": "E-commerce Development Package",
-      "price": 5000,
-      "created-at": "2024-09-12T13:45:15Z"
-    },
-    {
-      "id": 4,
-      "product_name": "Custom Web Application Development",
-      "price": 8000,
-      "created-at": "2024-09-13T09:20:45Z"
-    },
-    {
-      "id": 5,
-      "product_name": "Website Maintenance & Support",
-      "price": 1200,
-      "created-at": "2024-09-13T14:35:10Z"
-    },
-    {
-      "id": 6,
-      "product_name": "SEO Optimization Service",
-      "price": 1500,
-      "created-at": "2024-09-14T16:50:25Z"
-    },
-    {
-      "id": 7,
-      "product_name": "WordPress Development",
-      "price": 3500,
-      "created-at": "2024-09-15T11:05:00Z"
-    },
-    {
-      "id": 8,
-      "product_name": "Web Hosting & Domain Management",
-      "price": 900,
-      "created-at": "2024-09-16T15:30:35Z"
-    },
-    {
-      "id": 9,
-      "product_name": "UI/UX Design Consultation",
-      "price": 2000,
-      "created-at": "2024-09-17T09:45:20Z"
-    },
-    {
-      "id": 10,
-      "product_name": "API Integration Service",
-      "price": 2200,
-      "created-at": "2024-09-18T17:10:50Z"
     }
   ]
-  
 }

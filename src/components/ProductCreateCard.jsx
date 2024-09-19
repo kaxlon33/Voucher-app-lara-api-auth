@@ -72,12 +72,12 @@ const ProductCreateCard = () => {
               Product name is required
             </p>
           )}
-          {errors.minLength?.type === "minLength" && (
+          {errors.product_name?.type === "minLength" && (
             <p className="text-red-500" role="alert">
               Product Name must be at least 3 characters
             </p>
           )}
-          {errors.maxLength?.type === "maxLength" && (
+          {errors.product_name?.type === "maxLength" && (
             <p className="text-red-500" role="alert">
               Product Name must be less than 10 characters
             </p>
@@ -112,12 +112,12 @@ const ProductCreateCard = () => {
               Product price is required
             </p>
           )}
-          {errors.min?.type === "min" && (
+          {errors.price?.type === "min" && (
             <p className="text-red-500" role="alert">
               Product Price must be at 100
             </p>
           )}
-          {errors.max?.type === "max" && (
+          {errors.price?.type === "max" && (
             <p className="text-red-500" role="alert">
               Product price must be less than 10000
             </p>
