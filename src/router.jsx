@@ -6,6 +6,8 @@ import ProductPage from "./pages/ProductPage.jsx";
 import SalePage from "./pages/SalePage.jsx";
 import VoucherPage from "./pages/VoucherPage.jsx";
 import { createBrowserRouter } from "react-router-dom";
+import ProductCreatePage from "./pages/ProductCreatePage.jsx";
+import ProductEditPage from "./pages/ProductEditPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/voucher",
         element: <VoucherPage />,
+      },
+      {
+        path: "/product/create",
+        element: <ProductCreatePage />,
+      },
+      {
+        path: "/product/edit/:id",//id htae mha ya
+        element: <ProductEditPage/>,
       },
     ],
   },
