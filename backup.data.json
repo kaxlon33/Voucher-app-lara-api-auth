@@ -60,6 +60,106 @@
       "price": 2200,
       "created-at": "2024-09-18T17:10:50Z"
     }
+  ],
+  "vouchers": [
+    {
+      "voucher_id": "INV-20240922-8031",
+      "customer_name": "Ada Pie",
+      "customer_email": "AdaPie7777@gmail.com",
+      "sale_date": "2024-09-22",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727018182826,
+          "product": {
+            "id": 4,
+            "product_name": "Custom Web Application Development",
+            "price": 8000,
+            "created-at": "2024-09-13T09:20:45Z"
+          },
+          "quantity": "1",
+          "cost": 8000,
+          "created_at": "2024-09-22T15:16:22.826Z"
+        }
+      ],
+      "total": 8000,
+      "tax": 560,
+      "netTotal": 8560,
+      "id": 1
+    },
+    {
+      "voucher_id": "INV-20240922-1284",
+      "customer_name": "Zaw Zaw",
+      "customer_email": "Zaw@gmail.com",
+      "sale_date": "2024-09-22",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727018620640,
+          "product": {
+            "id": 10,
+            "product_name": "API Integration Service",
+            "price": 2200,
+            "created-at": "2024-09-18T17:10:50Z"
+          },
+          "quantity": "2",
+          "cost": 4400,
+          "created_at": "2024-09-22T15:23:40.640Z"
+        },
+        {
+          "id": 1727018623296,
+          "product": {
+            "id": 5,
+            "product_name": "Website Maintenance & Support",
+            "price": 1200,
+            "created-at": "2024-09-13T14:35:10Z"
+          },
+          "quantity": "4",
+          "cost": 4800,
+          "created_at": "2024-09-22T15:23:43.296Z"
+        }
+      ],
+      "total": 9200,
+      "tax": 644.0000000000001,
+      "netTotal": 9844,
+      "id": 2
+    },
+    {
+      "voucher_id": "INV-20240922-4952",
+      "customer_name": "Maw",
+      "customer_email": "Maw@gmail.com",
+      "sale_date": "2024-09-22",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727018711814,
+          "product": {
+            "id": 3,
+            "product_name": "E-commerce Development Package",
+            "price": 5000,
+            "created-at": "2024-09-12T13:45:15Z"
+          },
+          "quantity": "6",
+          "cost": 30000,
+          "created_at": "2024-09-22T15:25:11.814Z"
+        },
+        {
+          "id": 1727018714517,
+          "product": {
+            "id": 6,
+            "product_name": "SEO Optimization Service",
+            "price": 1500,
+            "created-at": "2024-09-14T16:50:25Z"
+          },
+          "quantity": "4",
+          "cost": 6000,
+          "created_at": "2024-09-22T15:25:14.517Z"
+        }
+      ],
+      "total": 36000,
+      "tax": 2520.0000000000005,
+      "netTotal": 38520,
+      "id": 3
+    }
   ]
-  
 }
