@@ -98,6 +98,31 @@
       "tax": 2604.0000000000005,
       "netTotal": 39804,
       "id": 2
+    },
+    {
+      "voucher_id": "INV-20241002-8184",
+      "customer_name": "kyaw kyaw",
+      "customer_email": "kyaw@gmail.com",
+      "sale_date": "2024-10-02",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727867976001,
+          "product": {
+            "id": 3,
+            "product_name": "E-commerce Development Package",
+            "price": 5000,
+            "created-at": "2024-09-12T13:45:15Z"
+          },
+          "quantity": "5",
+          "cost": 25000,
+          "created_at": "2024-10-02T11:19:36.001Z"
+        }
+      ],
+      "total": 25000,
+      "tax": 1750.0000000000002,
+      "netTotal": 26750,
+      "id": 3
     }
   ]
 }
