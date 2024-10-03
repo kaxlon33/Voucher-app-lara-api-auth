@@ -123,6 +123,58 @@
       "tax": 1750.0000000000002,
       "netTotal": 26750,
       "id": 3
+    },
+    {
+      "voucher_id": "INV-20241003-5699",
+      "customer_name": "phoo",
+      "customer_email": "phoo@gmail.com",
+      "sale_date": "2024-10-03",
+      "redirect_to_detail": "true",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727949146364,
+          "product": {
+            "id": 2,
+            "product_name": "Website Design Service",
+            "price": 3000,
+            "created-at": "2024-09-11T10:30:00Z"
+          },
+          "quantity": 8,
+          "cost": 24000,
+          "created_at": "2024-10-03T09:52:26.364Z"
+        }
+      ],
+      "total": 24000,
+      "tax": 1680.0000000000002,
+      "netTotal": 25680,
+      "id": 4
+    },
+    {
+      "voucher_id": "INV-20241003-1953",
+      "customer_name": "phoo",
+      "customer_email": "phoo@gmail.com",
+      "sale_date": "2024-10-03",
+      "redirect_to_detail": "true",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1727949489583,
+          "product": {
+            "id": 5,
+            "product_name": "Website Maintenance & Support",
+            "price": 1200,
+            "created-at": "2024-09-13T14:35:10Z"
+          },
+          "quantity": "5",
+          "cost": 6000,
+          "created_at": "2024-10-03T09:58:09.583Z"
+        }
+      ],
+      "total": 6000,
+      "tax": 420.00000000000006,
+      "netTotal": 6420,
+      "id": 5
     }
   ]
 }

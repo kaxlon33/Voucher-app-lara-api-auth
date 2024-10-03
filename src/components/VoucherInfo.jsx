@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import SaleForm from "./SaleForm";
 import VoucherTable from "./VoucherTable";
 import useRecordStore from "../stores/useRecordStore";
+import { useNavigate } from "react-router-dom";
 lineWobble.register();
 
 const VoucherInfo = () => {
@@ -12,35 +13,41 @@ const VoucherInfo = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
+
+  const navigate = useNavigate();
 
   const [isSending, setIsSending] = useState(false);
 
-  const { records , resetRecord } = useRecordStore();
+  const { records, resetRecord } = useRecordStore();
 
   const onSubmit = async (data) => {
-
     setIsSending(true);
 
     const total = records.reduce((a, b) => a + b.cost, 0);
     const tax = total * 0.07;
     const netTotal = total + tax;
 
-    const currentVoucher = ({ ...data, records, total, tax, netTotal });
+    const currentVoucher = { ...data, records, total, tax, netTotal };
 
-    await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
+   const res = await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
       method: "POST",
       body: JSON.stringify(currentVoucher),
       headers: {
         "Content-Type": "application/json",
       },
-    })
+    });
+    const json = await res.json();
+
     toast.success("Voucher created successfully");
     resetRecord();
     reset();
     setIsSending(false);
 
+    if (data.redirect_to_detail) {
+      navigate(`/voucher/detail/${json.id}`);
+    }
   };
 
   function generateInvoiceNumber() {
@@ -180,11 +187,35 @@ const VoucherInfo = () => {
         </div>
       </form>
       <SaleForm />
-      
+
       <VoucherTable />
 
-      <div className="flex justify-end gap-3 items-center ">
-        <div className="flex items-center ">
+      <div className="flex  flex-col justify-end gap-3 items-end mt-5 ">
+        <div className="flex items-center gap-3">
+          <label
+            htmlFor="redirect_to_detail"
+            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Redirect to Voucher Detail
+          </label>
+          <input
+            {...register("redirect_to_detail")}
+            required
+            form="infoForm"
+            id="redirect_to_detail"
+            type="checkbox"
+            defaultValue
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+        </div>
+
+        <div className="flex items-center gap-3">
+          <label
+            htmlFor="all-correct"
+            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Make Sure All the field are correct
+          </label>
           <input
             {...register("all_correct")}
             required
@@ -194,14 +225,8 @@ const VoucherInfo = () => {
             defaultValue
             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
-
-          <label
-            htmlFor="all-correct"
-            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Make Sure All the field are correct
-          </label>
         </div>
+
         <button
           type="submit"
           form="infoForm"
