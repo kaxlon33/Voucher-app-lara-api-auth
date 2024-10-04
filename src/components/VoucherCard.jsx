@@ -90,20 +90,20 @@ const VoucherCard = () => {
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Total
               </td>
-              <td className="text-right font-semibold text-sm">{data.total}</td>
+              <td className="text-right font-semibold text-sm">{data.total.toFixed(2)}</td>
             </tr>
             <tr>
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Tax
               </td>
-              <td className="text-right font-semibold text-sm">{data.tax}</td>
+              <td className="text-right font-semibold text-sm">{data.tax.toFixed(2)}</td>
             </tr>
             <tr>
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Net Total
               </td>
               <td className="text-right font-semibold text-sm">
-                {data.netTotal}
+                {data.netTotal.toFixed(2)}
               </td>
             </tr>
           </tfoot>

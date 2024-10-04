@@ -175,6 +175,56 @@
       "tax": 420.00000000000006,
       "netTotal": 6420,
       "id": 5
+    },
+    {
+      "voucher_id": "INV-20241004-2143",
+      "customer_name": "kyaw kyaw",
+      "customer_email": "kyaw@gmail.com",
+      "sale_date": "2024-10-04",
+      "redirect_to_detail": "true",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1728043174844,
+          "product": {
+            "id": 2,
+            "product_name": "Website Design Service",
+            "price": 3000,
+            "created-at": "2024-09-11T10:30:00Z"
+          },
+          "quantity": "3",
+          "cost": 9000,
+          "created_at": "2024-10-04T11:59:34.844Z"
+        },
+        {
+          "id": 1728043183498,
+          "product": {
+            "id": 4,
+            "product_name": "Custom Web Application Development",
+            "price": 8000,
+            "created-at": "2024-09-13T09:20:45Z"
+          },
+          "quantity": "4",
+          "cost": 32000,
+          "created_at": "2024-10-04T11:59:43.498Z"
+        },
+        {
+          "id": 1728043185495,
+          "product": {
+            "id": 6,
+            "product_name": "SEO Optimization Service",
+            "price": 1500,
+            "created-at": "2024-09-14T16:50:25Z"
+          },
+          "quantity": "4",
+          "cost": 6000,
+          "created_at": "2024-10-04T11:59:45.495Z"
+        }
+      ],
+      "total": 47000,
+      "tax": 3290.0000000000005,
+      "netTotal": 50290,
+      "id": 6
     }
   ]
 }
