@@ -10,6 +10,7 @@ const VoucherPage = () => {
       <BreadCrumb currentPageTitle={"Voucher Module"}/>
       <VoucherList/>
       </Container>
+      
     </section>
   )
 }
