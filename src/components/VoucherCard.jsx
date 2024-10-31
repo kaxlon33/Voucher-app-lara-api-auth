@@ -51,16 +51,16 @@ const VoucherCard = () => {
           <h1 className="text-4xl font-bold">INVOICE</h1>
           <div className="text-right">
             <p className="font-semibold">Invoice to</p>
-            <p>{data.customer_name}</p>
+            <p>{data?.data?.customer_name}</p>
           </div>
         </div>
 
         <div className="mb-8">
           <p>
-            <span className="font-semibold">Number:</span> {data.voucher_id}
+            <span className="font-semibold">Number:</span> {data?.data?.voucher_id}
           </p>
           <p>
-            <span className="font-semibold">Date:</span> {data.sale_date}
+            <span className="font-semibold">Date:</span> {data?.data?.sale_date}
           </p>
         </div>
 
@@ -75,7 +75,7 @@ const VoucherCard = () => {
             </tr>
           </thead>
           <tbody>
-            {data.records.map((record, index) => (
+            {data?.data?.records.map((record, index) => (
               <tr key={record.id}>
                 <td className="py-2 text-sm">{index + 1}</td>
                 <td className="py-2 text-sm">{record.product.product_name}</td>
@@ -90,20 +90,21 @@ const VoucherCard = () => {
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Total
               </td>
-              <td className="text-right font-semibold text-sm">{data.total.toFixed(2)}</td>
+              <td className="text-right font-semibold text-sm">{parseFloat(data.data.total).toFixed(2)}</td>
             </tr>
             <tr>
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Tax
               </td>
-              <td className="text-right font-semibold text-sm">{data.tax.toFixed(2)}</td>
+              <td className="text-right font-semibold text-sm">
+                {parseFloat(data.data.tax).toFixed(2)}</td>
             </tr>
             <tr>
               <td colSpan={4} className="text-right font-semibold text-sm">
                 Net Total
               </td>
               <td className="text-right font-semibold text-sm">
-                {data.netTotal.toFixed(2)}
+                {parseFloat(data.data.netTotal).toFixed(2)}
               </td>
             </tr>
           </tfoot>

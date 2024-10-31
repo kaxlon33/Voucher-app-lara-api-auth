@@ -9,41 +9,83 @@ import { createBrowserRouter } from "react-router-dom";
 import ProductCreatePage from "./pages/ProductCreatePage.jsx";
 import ProductEditPage from "./pages/ProductEditPage.jsx";
 import VoucherDetailPage from "./pages/VoucherDetailPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import UserProfileChangeNamePage from "./pages/UserProfileChangeNamePage.jsx";
+import UserProfilieChangeImagePage from "./pages/UserProfilieChangeImagePage.jsx";
+import UserProfileChangePasswordPage from "./pages/UserProfileChangePasswordPage.jsx";
+import UserProfilePage from "./pages/UserProfilePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
     errorElement: <NotFoundPage />,
     children: [
       {
         index: true,
-        element: <DashboardPage />,
+       element: <LoginPage />,
       },
       {
-        path: "/product",
-        element: <ProductPage />,
+        path: "/register",
+        element: <RegisterPage />,
       },
       {
-        path: "/sale",
-        element: <SalePage />,
-      },
-      {
-        path: "/voucher",
-        element: <VoucherPage />,
-      },
-      {
-        path: "/product/create",
-        element: <ProductCreatePage />,
-      },
-      {
-        path: "/product/edit/:id",//id htae mha ya
-        element: <ProductEditPage/>,
-      },
-      {
-        path: "/voucher/detail/:id",
-        element: <VoucherDetailPage/>,
-      },
+        path: "dashboard",
+        element: <Layout />,
+        children: [
+          {
+            index: true,
+            element: <DashboardPage />,
+          },
+        
+          {
+            path: "product",
+            element: <ProductPage />,
+          },
+          {
+            path: "sale",
+            element: <SalePage />,
+          },
+          {
+            path: "voucher",
+            element: <VoucherPage />,
+          },
+          {
+            path: "product/create",
+            element: <ProductCreatePage />,
+          },
+          {
+            path: "product/edit/:id",//id htae mha ya
+            element: <ProductEditPage/>,
+          },
+          {
+            path: "voucher/detail/:id",
+            element: <VoucherDetailPage/>,
+          },
+          {
+             path: "user-profile",
+             children:[
+              {
+                index: true,
+                element: <UserProfilePage />,
+              },
+              {
+                path: "user-change-name",
+                element: <UserProfileChangeNamePage />,
+              },
+              {
+                path: "user-change-image",
+                element: <UserProfilieChangeImagePage />,
+              },
+              {
+                path: "user-change-password",
+                element: <UserProfileChangePasswordPage />,
+              },
+             ]
+          }
+        ]
+      }
+      
     ],
   },
 ]);

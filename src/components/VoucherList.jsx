@@ -6,30 +6,41 @@ import useSWR from "swr";
 import VoucherListRow from "./VoucherListRow";
 import { debounce, set } from "lodash";
 import VoucherListSkeletonLoader from "./VoucherListSkeletonLoader";
+import Pagination from "./pagination";
+
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const VoucherList = () => {
 
-  const [search, setSearch] = useState("");
-
+  // const [search, setSearch] = useState("");
+  const [fetchUrl, setFetchUrl] = useState(
+    import.meta.env.VITE_API_URL + `/vouchers`
+  )
   const searchInput = useRef();
-  console.log(searchInput);
+  // console.log(searchInput);
 
   const { data, isLoading, error } = useSWR(
-   search ? `${import.meta.env.VITE_API_URL}/vouchers?voucher_name_like=${search}` : `${import.meta.env.VITE_API_URL}/vouchers`,
+    fetchUrl,
     fetcher
   );
 
 
   const handleSearch = debounce((e) => {
     console.log(e.target.value);
-    setSearch(e.target.value);
+    setFetchUrl(
+      `${import.meta.env.VITE_API_URL}/vouchers?q=${e.target.value}`
+    )
   }, 500);
 
   const handleClear = () => {
     setSearch("");
     searchInput.current.value = "";
   };
+
+  const updateFetchUrl = (url) => {
+    setFetchUrl(url);
+  }
 
   return (
     <section>
@@ -48,14 +59,14 @@ const VoucherList = () => {
                 className="bg-gray-50 border border-gray-300 text-stone-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search Voucher"
               />
-              {search && (
+              {/* {search && (
                 <button
                   onClick={handleClear}
                   className="absolute top-0 right-2 bottom-0 m-auto"
                 >
                   <HiX className="w-4 h-4 text-stone-500 dark:text-stone-400 fill-red-500 scale-100 active:scale-90" />
                 </button>
-              )}
+              )} */}
             </div>
           </div>
           <div className="">
@@ -100,13 +111,14 @@ const VoucherList = () => {
 
                <VoucherListSkeletonLoader />
               ):
-                data?.map((voucher, index) => (
-                  <VoucherListRow key={index} voucher={voucher} />
+                data?.data?.map((voucher, index) => (
+                  <VoucherListRow key={voucher.id} voucher={voucher} />
                 ))}
             </tbody>
           </table>
         </div>
-      </div>
+        {!isLoading && <Pagination links={data?.links} meta={data?.meta} updateFetchUrl={updateFetchUrl}/> }
+        </div>
     </section>
   );
 };

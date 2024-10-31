@@ -5,34 +5,48 @@ import {
   HiCircleStack,
   HiMiniComputerDesktop,
   HiDocumentDuplicate,
+  HiUserCircle,
 } from "react-icons/hi2";
+import Logout from "../components/Logout";
 
 const DashboardPage = () => {
   return (
     <section>
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 ">
           <div className="col-span-1">
             <ModuleBtn
               name={"Product Module"}
               icon={<HiCircleStack className="size-14" />}
-              url={"/product"}
+              url={"/dashboard/product"}
             />
           </div>
           <div className="col-span-1">
             <ModuleBtn
               name={"Sales Module"}
               icon={<HiMiniComputerDesktop className="size-14" />}
-              url={"/sale"}
+              url={"/dashboard/sale"}
             />
           </div>
           <div className="col-span-1">
             <ModuleBtn
               name={"Voucher Module"}
               icon={<HiDocumentDuplicate className="size-14" />}
-              url={"/voucher"}
+              url={"/dashboard/voucher"}
             />
           </div>
+
+          <div className="col-span-1">
+            <ModuleBtn
+              name={"User Profile"}
+              icon={<HiUserCircle className="size-14" />}
+              url={"/dashboard/user-profile"}
+            />
+          </div>
+        </div>
+        <div className="mt-5 flex items-center justify-end  gap-3 ">
+          <p>If you finish your work , just</p>
+        <Logout/>
         </div>
       </Container>
     </section>
