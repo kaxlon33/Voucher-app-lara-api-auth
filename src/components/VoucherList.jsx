@@ -7,18 +7,25 @@ import VoucherListRow from "./VoucherListRow";
 import { debounce, set } from "lodash";
 import VoucherListSkeletonLoader from "./VoucherListSkeletonLoader";
 import Pagination from "./pagination";
+import useCookie from "react-use-cookie";
 
-
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
-const VoucherList = () => {
+const  VoucherList = () => {
 
   // const [search, setSearch] = useState("");
   const [fetchUrl, setFetchUrl] = useState(
     import.meta.env.VITE_API_URL + `/vouchers`
   )
+  const [token] = useCookie("my_token");
+
   const searchInput = useRef();
   // console.log(searchInput);
+
+  const fetcher = (url) =>
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
 
   const { data, isLoading, error } = useSWR(
     fetchUrl,

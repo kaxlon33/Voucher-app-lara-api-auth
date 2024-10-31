@@ -16,29 +16,27 @@ import { debounce } from "lodash";
 import Pagination from "./pagination";
 import useCookie from "react-use-cookie";
 
-
 const ProductList = () => {
-  const[token]= useCookie("my_token");
-  const[fetchUrl , setFetchUrl] = useState(import.meta.env.VITE_API_URL+`/products`);
- 
-  const fetcher = (url) => 
-    fetch(url,{
-      headers: {
-        Authorization : `Bearer ${token}`,
-      }
-    }).then((res) => res.json());
-
-  const { data, isLoading, error } = useSWR(
-    fetchUrl,
-    fetcher
+  const [token] = useCookie("my_token");
+  const [fetchUrl, setFetchUrl] = useState(
+    import.meta.env.VITE_API_URL + `/products`
   );
 
+  const fetcher = (url) =>
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json());
+
+  const { data, isLoading, error } = useSWR(fetchUrl, fetcher);
+
   const [search, setSearch] = useState("");
-  const handleSearch =debounce((e) => {
+  const handleSearch = debounce((e) => {
     console.log(e.target.value);
     setSearch(e.target.value);
     setFetchUrl(`${import.meta.env.VITE_API_URL}/products?q=${e.target.value}`);
-},500);
+  }, 500);
 
   const handleClear = () => {
     setSearch("");
@@ -47,7 +45,7 @@ const ProductList = () => {
 
   const updateFetchUrl = (url) => {
     setFetchUrl(url);
-  }
+  };
   // if(isLoading) return <p>Loading...</p>
   // console.log(data)
 
@@ -123,7 +121,13 @@ const ProductList = () => {
           </tbody>
         </table>
       </div>
-      {!isLoading && <Pagination links={data?.links} meta={data?.meta} updateFetchUrl={updateFetchUrl}/> }
+      {!isLoading && (
+        <Pagination
+          links={data?.links}
+          meta={data?.meta}
+          updateFetchUrl={updateFetchUrl}
+        />
+      )}
     </div>
   );
 };

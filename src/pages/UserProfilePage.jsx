@@ -69,12 +69,13 @@ const UserProfilePage = () => {
             <dd className="text-gray-500 dark:text-gray-400">{email}</dd>
           </dl>
 
-          <button
+          <Link
+          to={"user-change-password"}
             type="button"
             className="inline-flex gap-3 items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 sm:w-auto"
           >
             <HiLockOpen /> Change Password
-          </button>
+          </Link>
         </div>
       </Container>
     </section>
